@@ -33,10 +33,18 @@ img { max-width: 100%; display: block; }
   display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 0;
 }
 .brand {
-  display: flex; align-items: center; gap: 10px; font-weight: 900; letter-spacing: .12em; color: var(--blue);
+  display: flex; align-items: center; gap: 12px; font-weight: 900; letter-spacing: .1em; color: var(--blue); font-size: 1rem;
 }
 .brand-mark {
-  width: 14px; height: 14px; background: var(--red); display: inline-block; border-radius: 3px; box-shadow: 0 0 0 3px rgba(200,16,46,.12);
+  width: 20px; height: 20px; background: linear-gradient(135deg, var(--red), #a01b33); display: inline-flex; border-radius: 5px; box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+  position: relative;
+}
+.brand-mark::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: #fff;
+  border-radius: 3px;
 }
 .menu { display: flex; gap: 18px; flex-wrap: wrap; }
 .menu a { font-size: .9rem; color: var(--blue); font-weight: 700; }
@@ -143,4 +151,15 @@ th { background: #f3f6fa; color: var(--blue); }
   .product-card { grid-template-columns: 1fr; }
   .product-side-card { position: static; }
   .hero, .section, .page-banner { padding-top: 36px; padding-bottom: 36px; }
+}
+
+.company-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 30px; }
+.image-card { background: var(--white); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; box-shadow: var(--shadow); }
+.image-card img { width: 100%; display: block; height: 180px; object-fit: cover; }
+
+@media (max-width: 900px) {
+  .company-gallery { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .company-gallery { grid-template-columns: 1fr; }
 }
