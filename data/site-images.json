@@ -1,0 +1,14 @@
+{
+  "heroImages": [
+    "/assets/images/company-hero-1.jpg",
+    "/assets/images/company-hero-2.jpg"
+  ],
+  "aboutImages": [
+    "/assets/images/company-facility-1.jpg",
+    "/assets/images/company-facility-2.jpg"
+  ],
+  "productImages": [
+    "/assets/images/product-gallery-1.jpg",
+    "/assets/images/product-gallery-2.jpg"
+  ]
+}
