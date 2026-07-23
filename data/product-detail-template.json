@@ -1,0 +1,19 @@
+{
+  "product": "Template Product",
+  "family": "Adsorbents",
+  "subcategory": "Molecular Sieves",
+  "overview": "Short technical overview for industrial buyers.",
+  "applications": ["Application 1", "Application 2"],
+  "specifications": {
+    "Form": "Beads / pellets",
+    "Mesh Size": "As required",
+    "Adsorption Capacity": "As per CoA",
+    "pH / Chemistry": "Process dependent",
+    "Moisture / Water": "As agreed"
+  },
+  "grades": ["Grade A", "Grade B"],
+  "technicalNotes": "Provide regeneration practice, operating temperature, pressure range, expected service life, and compatibility notes here.",
+  "documentation": "CoA, TDS, MSDS available upon request.",
+  "recommendedUse": "Use for system-specific application engineering, not generic replacement.",
+  "image": "assets/images/product-placeholder.svg"
+}

@@ -5,8 +5,8 @@ async function loadProductData() {
   const text = await response.text();
   const rows = text.trim().split(/\r?\n/).slice(1).filter(Boolean);
   return rows.map((row) => {
-    const [family, subcategory, product, applications, specs, grades, image] = row.split('|');
-    return { family, subcategory, product, applications, specs, grades, image };
+    const [family, subcategory, product, slug, applications, specs, grades, overview, technicalNotes, documentation, recommendedUse, image] = row.split('|');
+    return { family, subcategory, product, slug, applications, specs, grades, overview, technicalNotes, documentation, recommendedUse, image };
   });
 }
 
@@ -18,13 +18,17 @@ function renderProducts(products, containerId = 'productList') {
       <div class="product-thumb">
         <img src="${item.image || './assets/images/product-placeholder.svg'}" alt="${item.product}">
       </div>
-      <div>
+      <div class="product-meta">
         <span class="tag">${item.family}</span>
         <h3>${item.product}</h3>
+        <p>${item.overview || 'Technical trading product for industrial application support.'}</p>
         <p><strong>Applications:</strong> ${item.applications}</p>
         <p><strong>Typical spec:</strong> ${item.specs}</p>
         <p><strong>Grades / forms:</strong> ${item.grades}</p>
-        <a class="btn btn-primary" href="contact.html">Request TDS / CoA / Quote</a>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="products/${item.slug || item.product.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.html">Product Page</a>
+          <a class="btn btn-ghost" href="contact.html">Request Data</a>
+        </div>
       </div>
     </article>
   `).join('');

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail | Aarbutus Technologies</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./script.js"></script>
+</head>
+<body>
+  <div class="topbar"><div class="container">Aarbutus Technologies • Technical product detail page</div></div>
+  <nav class="navbar"><div class="container nav-wrap"><a class="brand" href="index.html"><span class="brand-mark"></span> AARBUTUS</a><div class="menu"><a href="index.html">Home</a><a href="products.html">Products</a><a href="applications.html">Applications</a><a href="about.html">About</a><a href="resources.html">Resources</a><a href="contact.html">Contact</a></div></div></nav>
+  <section class="page-banner"><div class="container"><h1 id="detailTitle">Product Detail</h1><p id="detailSubtitle">Technical data and application detail page.</p></div></section>
+  <section class="section">
+    <div class="container product-layout">
+      <div class="card product-side-card">
+        <div class="product-thumb" style="min-height: 220px; margin-bottom: 16px;"><img id="detailImage" src="./assets/images/product-placeholder.svg" alt="Product image"></div>
+        <div class="tag" id="detailFamily">Family</div>
+        <h3 id="detailProductName">Product</h3>
+        <p id="detailOverview"></p>
+        <a class="btn btn-primary" href="contact.html">Request TDS / CoA / Quote</a>
+      </div>
+      <div class="card">
+        <div class="spec-list">
+          <div class="spec-item"><strong>Applications</strong><div id="detailApplications"></div></div>
+          <div class="spec-item"><strong>Typical Specifications</strong><div id="detailSpecs"></div></div>
+          <div class="spec-item"><strong>Grades / Forms</strong><div id="detailForms"></div></div>
+          <div class="spec-item"><strong>Technical Notes</strong><div id="detailNotes"></div></div>
+          <div class="spec-item"><strong>Documentation</strong><div id="detailDocumentation"></div></div>
+          <div class="spec-item"><strong>Recommended Use</strong><div id="detailUse"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
