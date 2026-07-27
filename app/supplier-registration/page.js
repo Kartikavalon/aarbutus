@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Supplier Registration | Kaytherix Industries',
-  description: 'Register as a supplier or vendor with Kaytherix Industries.',
+  title: 'Supplier Registration | Aarbutus Technologies',
+  description: 'Register as a supplier or vendor with Aarbutus Technologies.',
 };
 
 export default function SupplierRegistrationPage() {

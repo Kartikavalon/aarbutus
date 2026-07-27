@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Request Quote | Kaytherix Industries',
+  title: 'Request Quote | Aarbutus Technologies',
   description: 'Request a quote for industrial products and technical materials.',
 };
 

@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Contact | Kaytherix Industries',
-  description: 'Contact Kaytherix Industries for quotations, technical support and product inquiries.',
+  title: 'Contact | Aarbutus Technologies',
+  description: 'Contact Aarbutus Technologies for quotations, technical support and product inquiries.',
 };
 
 export default function ContactPage() {
@@ -11,8 +11,8 @@ export default function ContactPage() {
       <section className="page-intro">
         <div className="container">
           <div className="breadcrumb"><Link href="/">Home</Link> / Contact</div>
-          <h1>Contact our industrial sales and technical support team</h1>
-          <p>Share your application, required material, quantity and destination so we can route your inquiry appropriately.</p>
+          <h1>Contact our commercial and technical support team</h1>
+          <p>Share your application, required material, quantity and destination so we can route your inquiry appropriately. Use the contact details or the inquiry form below to reach our export and technical teams.</p>
         </div>
       </section>
       <section className="section container">
@@ -33,9 +33,9 @@ export default function ContactPage() {
           <div className="info-card">
             <h3>Commercial contact</h3>
             <p>For quotation requests, technical support and product selection, contact our export team directly.</p>
-            <p>Email: sales@kaytherix.example.com</p>
-            <p>Phone: +91 00000 00000</p>
-            <p>Address: Industrial Corridor, Export Zone, India</p>
+            <p>Email: aarbutustechnologies@gmail.com</p>
+            <p>Phone: +91 9650463811</p>
+            <p>Address: A-12 Ashok Nagar, Ghaziabad 201001, India</p>
           </div>
         </div>
       </section>

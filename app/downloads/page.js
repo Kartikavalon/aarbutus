@@ -8,7 +8,7 @@ const downloads = [
 ];
 
 export const metadata = {
-  title: 'Downloads | Kaytherix Industries',
+  title: 'Downloads | Aarbutus Technologies',
   description: 'Download company brochures, certificates and technical documents.',
 };
 

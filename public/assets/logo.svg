@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="64" viewBox="0 0 320 64">
+  <rect width="64" height="64" rx="10" fill="#0f2f6d" />
+  <rect x="8" y="8" width="12" height="48" rx="3" fill="#d7263d" />
+  <path d="M38 20 L62 32 L38 44" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+  <text x="80" y="28" font-family="Roboto, Arial, sans-serif" font-size="22" fill="#0f2f6d" font-weight="700">Aarbutus</text>
+  <text x="80" y="47" font-family="Roboto, Arial, sans-serif" font-size="12" fill="#64748b">Technologies</text>
+</svg>

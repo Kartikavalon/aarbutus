@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { news } from '@/lib/content';
 
 export const metadata = {
-  title: 'News | Kaytherix Industries',
+  title: 'News | Aarbutus Technologies',
   description: 'Recent technical updates and company news.',
 };
 

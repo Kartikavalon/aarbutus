@@ -5,8 +5,10 @@ export default function SiteFooter() {
     <footer className="footer">
       <div className="container footer-grid">
         <div>
-          <h3>Kaytherix Industries</h3>
+          <h3>Aarbutus Technologies Pvt Ltd</h3>
           <p>Global supplier of specialty chemicals, adsorbents, catalyst supports and industrial raw materials for process industries and export buyers.</p>
+          <p style={{ marginTop: '0.6rem' }}>Email: aarbutustechnologies@gmail.com • Phone: +91 9650463811</p>
+          <p style={{ marginTop: '0.35rem' }}>Address: A-12 Ashok Nagar, Ghaziabad 201001, India</p>
         </div>
         <div>
           <h3>Explore</h3>
@@ -28,7 +30,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© 2026 Kaytherix Industries. All rights reserved.</span>
+        <span>© 2026 Aarbutus Technologies Pvt Ltd. All rights reserved.</span>
       </div>
     </footer>
   );

@@ -10,7 +10,7 @@ const applicationAreas = [
 ];
 
 export const metadata = {
-  title: 'Applications | Kaytherix Industries',
+  title: 'Applications | Aarbutus Technologies',
   description: 'Applications include gas drying, water treatment, hydrocarbon purification and catalyst support.',
 };
 
@@ -21,7 +21,7 @@ export default function ApplicationsPage() {
         <div className="container">
           <div className="breadcrumb"><Link href="/">Home</Link> / Applications</div>
           <h1>Applications matched to technical process requirements</h1>
-          <p>Kaytherix Industries supports buyers who need materials selected for specific process functions, not just general catalog supply.</p>
+          <p>Aarbutus Technologies supports buyers who need materials selected for specific process functions, not just general catalog supply.</p>
         </div>
       </section>
       <section className="section container">

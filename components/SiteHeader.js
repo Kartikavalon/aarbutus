@@ -16,8 +16,8 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="container navbar">
         <Link href="/" className="brand-wrap">
-          <span className="brand-mark" />
-          <span>Kaytherix Industries</span>
+          <img src="/assets/logo-icon.svg" alt="Aarbutus Technologies" style={{ width: 28, height: 28, borderRadius: 4 }} />
+          <span>Aarbutus Technologies</span>
         </Link>
         <nav className="nav-links" aria-label="Primary navigation">
           {links.map((link) => (

@@ -4,8 +4,8 @@ import { getFeaturedProducts, getCategories } from '@/lib/products';
 import { industries, news, certificates } from '@/lib/content';
 
 export const metadata = {
-  title: 'Kaytherix Industries | Global Supplier of Adsorbents, Chemicals and Industrial Minerals',
-  description: 'Kaytherix Industries delivers specialty chemicals, adsorbents, catalyst supports and industrial minerals to global process industries.',
+  title: 'Aarbutus Technologies | Global Supplier of Adsorbents, Chemicals and Industrial Minerals',
+  description: 'Aarbutus Technologies delivers specialty chemicals, adsorbents, catalyst supports and industrial minerals to global process industries.',
 };
 
 export default async function HomePage() {
@@ -19,7 +19,7 @@ export default async function HomePage() {
           <div>
             <span className="kicker">Global industrial supply partner</span>
             <h1>Specialty chemicals, adsorbents and industrial minerals for demanding process plants.</h1>
-            <p>Kaytherix Industries supports refineries, water treatment plants, steel plants, semiconductor facilities, pharmaceuticals, mining operations and export buyers with reliable technical materials and export-ready supply.</p>
+            <p>Aarbutus Technologies supports refineries, water treatment plants, steel plants, semiconductor facilities, pharmaceuticals, mining operations and export buyers with reliable technical materials and export-ready supply.</p>
             <div className="hero-actions">
               <Link href="/quote" className="btn btn-primary">Request quotation</Link>
               <Link href="/products" className="btn btn-secondary">Explore products</Link>

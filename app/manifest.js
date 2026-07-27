@@ -1,7 +1,7 @@
 export default function manifest() {
   return {
-    name: 'Kaytherix Industries',
-    short_name: 'Kaytherix',
+    name: 'Aarbutus Technologies',
+    short_name: 'Aarbutus',
     description: 'Industrial supplier of specialty chemicals, adsorbents and industrial minerals.',
     start_url: '/',
     display: 'standalone',

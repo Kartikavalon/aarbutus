@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { getProducts, getCategories } from '@/lib/products';
 
 export const metadata = {
-  title: 'Products | Kaytherix Industries',
-  description: 'Browse adsorbents, specialty chemicals and support media from Kaytherix Industries.',
+  title: 'Products | Aarbutus Technologies',
+  description: 'Browse adsorbents, specialty chemicals and support media for industrial applications.',
 };
 
 export default async function ProductsPage() {

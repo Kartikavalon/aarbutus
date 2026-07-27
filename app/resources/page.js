@@ -7,7 +7,7 @@ const resources = [
 ];
 
 export const metadata = {
-  title: 'Resources | Kaytherix Industries',
+  title: 'Resources | Aarbutus Technologies',
   description: 'Technical resources, certificates and brochures for industrial buyers.',
 };
 

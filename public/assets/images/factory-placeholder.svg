@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#f1f5f9" />
+  <g transform="translate(80,120)">
+    <rect x="0" y="80" width="420" height="200" fill="#e2e8f0" stroke="#cbd5e1" />
+    <rect x="460" y="40" width="620" height="260" fill="#eef2ff" stroke="#cbd5e1" />
+    <text x="20" y="40" font-family="Arial" font-size="28" fill="#0f2f6d">Factory photo placeholder</text>
+  </g>
+</svg>

@@ -8,9 +8,12 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const condensed = Roboto_Condensed({ subsets: ['latin'], variable: '--font-condensed' });
 
 export const metadata = {
-  title: 'Kaytherix Industries | Specialty Chemicals, Adsorbents and Industrial Minerals',
-  description: 'Kaytherix Industries supplies specialty chemicals, adsorbents, catalyst supports and industrial raw materials to global industrial buyers.',
-  metadataBase: new URL('https://kaytherix.example.com'),
+  title: 'Aarbutus Technologies | Specialty Chemicals, Adsorbents and Industrial Minerals',
+  description: 'Aarbutus Technologies supplies specialty chemicals, adsorbents, catalyst supports and industrial raw materials to global industrial buyers.',
+  metadataBase: new URL('https://aarbutus.example.com'),
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
 export default function RootLayout({ children }) {

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Privacy Policy | Kaytherix Industries',
+  title: 'Privacy Policy | Aarbutus Technologies',
   description: 'Privacy policy for visitors and inquiry submissions.',
 };
 

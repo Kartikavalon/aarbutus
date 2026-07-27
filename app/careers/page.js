@@ -1,8 +1,8 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Careers | Kaytherix Industries',
-  description: 'Career opportunities with Kaytherix Industries.',
+  title: 'Careers | Aarbutus Technologies',
+  description: 'Career opportunities with Aarbutus Technologies.',
 };
 
 export default function CareersPage() {

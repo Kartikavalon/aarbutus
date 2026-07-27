@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Terms | Kaytherix Industries',
+  title: 'Terms | Aarbutus Technologies',
   description: 'Terms and conditions for website use and quotation requests.',
 };
 

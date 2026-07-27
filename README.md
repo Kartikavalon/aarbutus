@@ -1,6 +1,6 @@
-# Kaytherix Industries Website
+# Aarbutus Technologies Website
 
-This project has been rebuilt as a production-grade Next.js industrial website for Kaytherix Industries.
+This project has been rebuilt as a production-grade Next.js industrial website for Aarbutus Technologies.
 
 ## Project structure
 - app/ – app-router pages for the website experience

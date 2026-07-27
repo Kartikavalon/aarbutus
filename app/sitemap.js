@@ -2,7 +2,7 @@ import { getProducts } from '@/lib/products';
 
 export default async function sitemap() {
   const products = await getProducts();
-  const baseUrl = 'https://kaytherix.example.com';
+  const baseUrl = 'https://aarbutus.example.com';
   const productRoutes = products.map((product) => ({
     url: `${baseUrl}/products/${product.slug}`,
     lastModified: new Date(),

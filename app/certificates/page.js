@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { certificates } from '@/lib/content';
 
 export const metadata = {
-  title: 'Certificates | Kaytherix Industries',
+  title: 'Certificates | Aarbutus Technologies',
   description: 'Certificates and documentation available for industrial buyers.',
 };
 

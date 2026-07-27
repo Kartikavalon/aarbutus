@@ -9,9 +9,9 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }) {
   const product = await getProductBySlug(params.slug);
-  if (!product) return { title: 'Product | Kaytherix Industries' };
+  if (!product) return { title: 'Product | Aarbutus Technologies' };
   return {
-    title: `${product.product} | Kaytherix Industries`,
+    title: `${product.product} | Aarbutus Technologies`,
     description: product.overview,
   };
 }
@@ -31,8 +31,8 @@ export default async function ProductDetailPage({ params }) {
     <main>
       <section className="page-intro">
         <div className="container">
-          <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/products">Products</Link> / {product.product}</div>
-          <h1>{product.product}</h1>
+      <div className="breadcrumb"><Link href="/">Home</Link> / <Link href="/products">Products</Link> / {product.title}</div>
+      <h1>{product.title}</h1>
           <p>{product.overview}</p>
         </div>
       </section>

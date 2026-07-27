@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { industries } from '@/lib/content';
 
 export const metadata = {
-  title: 'Industries Served | Kaytherix Industries',
-  description: 'Technical materials for oil and gas, water treatment, petrochemicals, steel, battery and semiconductor applications.',
+  title: 'Industries Served | Aarbutus Technologies',
+  description: 'Technical materials for oil and gas, water treatment, petrochemicals, steel, bakeries and other industries.',
 };
 
 export default function IndustriesPage() {
