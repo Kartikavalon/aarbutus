@@ -25,7 +25,7 @@ export async function generateMetadata({ params }) {
       description: product.meta_description || product.overview,
       url: `${base}/products/${product.slug}`,
       images: [{ url: imageUrl, alt: product.image_alt || product.product }],
-      type: 'product',
+      type: 'website',
     },
     twitter: {
       card: 'summary_large_image',

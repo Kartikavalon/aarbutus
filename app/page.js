@@ -111,15 +111,15 @@ export default async function HomePage() {
         </div>
         <div className="grid-3">
           {products.map((product) => (
-              <article key={product.slug} className="product-card">
+            <article key={product.slug} className="product-card">
               <Image src={product.image} alt={product.product} width={500} height={260} style={{ borderRadius: '12px', marginBottom: '0.8rem' }} />
               <h3>{product.product}</h3>
               <p>{product.overview}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className="badge">{product.family}</span>
                 <Link href={`/products/${product.slug}`} className="btn btn-outline" style={{ borderColor: 'var(--border)', color: 'var(--blue)', padding: '0.55rem 0.75rem' }}>View details</Link>
-              </article>
-            </div>
+              </div>
+            </article>
           ))}
         </div>
       </section>
