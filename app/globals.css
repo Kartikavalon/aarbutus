@@ -53,6 +53,7 @@ button, input, select, textarea { font: inherit; }
 .brand-mark::before { content: ''; position: absolute; left: 0; top: 0; width: 5px; height: 100%; background: var(--red); border-top-left-radius: 3px; border-bottom-left-radius: 3px; }
 .nav-links { display: flex; flex-wrap: wrap; gap: 1rem; color: var(--text); font-size: 0.95rem; }
 .nav-links a:hover { color: var(--red); }
+.header-quote { padding: 0.55rem 0.85rem; border-radius: 999px; background: var(--red); color: white; font-size: 0.9rem; font-weight: 700; white-space: nowrap; }
 
 .hero { padding: 5rem 0 4rem; background: linear-gradient(90deg, rgba(15,47,109,0.98), rgba(15,47,109,0.9)); color: white; }
 .hero-grid { display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 2rem; align-items: center; }
@@ -104,6 +105,7 @@ button, input, select, textarea { font: inherit; }
 .field { display: flex; flex-direction: column; gap: 0.35rem; margin-bottom: 1rem; }
 .field label { font-weight: 600; color: var(--blue); }
 .field input, .field select, .field textarea { border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 0.9rem; background: white; }
+.form-note { color: var(--muted); font-size: 0.9rem; margin: 0.8rem 0 0; }
 
 .table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
 .table th, .table td { padding: 0.8rem; border-bottom: 1px solid var(--border); text-align: left; }

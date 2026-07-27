@@ -1,6 +1,27 @@
 import Link from 'next/link';
 import { getProducts, getCategories } from '@/lib/products';
 
+export async function generateMetadata({ params }) {
+  const categories = await getCategories();
+  const category = categories.find((item) => item.slug === params.slug);
+  const title = category ? `${category.name} | Aarbutus Technologies` : `Products | Aarbutus Technologies`;
+  const description = category
+    ? `Browse ${category.name} products for industrial process applications.`
+    : 'Explore industrial products for water treatment, gas purification, and filtration.';
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/products/category/${params.slug}` },
+    openGraph: {
+      type: 'website',
+      title,
+      description,
+      url: `https://aarbutus.co.in/products/category/${params.slug}`,
+    },
+  };
+}
+
 export async function generateStaticParams() {
   const categories = await getCategories();
   return categories.map((category) => ({ slug: category.slug }));

@@ -1,8 +1,16 @@
 import Link from 'next/link';
+import InquiryForm from '@/components/InquiryForm';
 
 export const metadata = {
   title: 'Contact | Aarbutus Technologies',
   description: 'Contact Aarbutus Technologies for quotations, technical support and product inquiries.',
+  alternates: { canonical: '/contact' },
+  openGraph: {
+    type: 'website',
+    title: 'Contact | Aarbutus Technologies',
+    description: 'Contact Aarbutus Technologies for quotations, technical support and product inquiries.',
+    url: 'https://aarbutus.co.in/contact',
+  },
 };
 
 export default function ContactPage() {
@@ -17,19 +25,7 @@ export default function ContactPage() {
       </section>
       <section className="section container">
         <div className="grid-2">
-          <div className="info-card">
-            <h3>Inquiry details</h3>
-            <div className="form-grid">
-              <div className="field"><label>Company</label><input placeholder="Company name" /></div>
-              <div className="field"><label>Email</label><input placeholder="name@company.com" /></div>
-              <div className="field"><label>Product interest</label><input placeholder="Molecular sieve 4A" /></div>
-              <div className="field"><label>Country</label><input placeholder="United Arab Emirates" /></div>
-              <div className="field"><label>Quantity</label><input placeholder="1 MT / 20 MT" /></div>
-              <div className="field"><label>Preferred incoterms</label><input placeholder="FOB / CIF" /></div>
-            </div>
-            <div className="field"><label>Message</label><textarea rows="5" placeholder="Describe your application, specifications and target delivery requirements." /></div>
-            <button className="btn btn-primary">Submit inquiry</button>
-          </div>
+          <InquiryForm />
           <div className="info-card">
             <h3>Commercial contact</h3>
             <p>For quotation requests, technical support and product selection, contact our export team directly.</p>

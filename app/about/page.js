@@ -3,6 +3,13 @@ import Link from 'next/link';
 export const metadata = {
   title: 'About Us | Aarbutus Technologies',
   description: 'Aarbutus Technologies supplies industrial chemicals, adsorbents and industrial minerals with technical support and export capability.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'website',
+    title: 'About Us | Aarbutus Technologies',
+    description: 'Aarbutus Technologies supplies industrial chemicals, adsorbents and industrial minerals with technical support and export capability.',
+    url: 'https://aarbutus.co.in/about',
+  },
 };
 
 export default function AboutPage() {
@@ -30,6 +37,19 @@ export default function AboutPage() {
             <h4>Vision</h4>
             <p>To build a globally respected chemical company recognized for technical capability, ethical business practices and long-term customer relationships.</p>
           </div>
+        </div>
+      </section>
+      <section className="section container">
+        <div className="section-title">
+          <div>
+            <span className="kicker">Gallery</span>
+            <h2>Factory and team images</h2>
+          </div>
+        </div>
+        <p>Place high-resolution images in <code>public/assets/images/</code> and reference them on this page. Recommended sizes: 1200×800 for landscape images. Example files: <code>factory1.jpg</code>, <code>team1.jpg</code>.</p>
+        <div className="gallery-grid">
+          <img src="/assets/images/factory-placeholder.svg" alt="Factory placeholder" style={{ maxWidth: '100%', borderRadius: 8 }} />
+          <img src="/assets/images/team-placeholder.svg" alt="Team placeholder" style={{ maxWidth: '100%', borderRadius: 8 }} />
         </div>
       </section>
       <section className="section container">

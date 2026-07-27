@@ -4,8 +4,15 @@ import { getFeaturedProducts, getCategories } from '@/lib/products';
 import { industries, news, certificates } from '@/lib/content';
 
 export const metadata = {
-  title: 'Aarbutus Technologies | Global Supplier of Adsorbents, Chemicals and Industrial Minerals',
-  description: 'Aarbutus Technologies delivers specialty chemicals, adsorbents, catalyst supports and industrial minerals to global process industries.',
+  title: 'Aarbutus Technologies | Adsorbents, Water Treatment Chemicals & Process Media',
+  description: 'Technical trading partner for adsorbents, water-treatment chemicals, ion-exchange resins and process media in India.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    title: 'Aarbutus Technologies | Adsorbents, Water Treatment Chemicals & Process Media',
+    description: 'Technical trading partner for adsorbents, water-treatment chemicals, ion-exchange resins and process media in India.',
+    url: 'https://aarbutus.co.in/',
+  },
 };
 
 export default async function HomePage() {
@@ -17,9 +24,9 @@ export default async function HomePage() {
       <section className="hero">
         <div className="container hero-grid">
           <div>
-            <span className="kicker">Global industrial supply partner</span>
-            <h1>Specialty chemicals, adsorbents and industrial minerals for demanding process plants.</h1>
-            <p>Aarbutus Technologies supports refineries, water treatment plants, steel plants, semiconductor facilities, pharmaceuticals, mining operations and export buyers with reliable technical materials and export-ready supply.</p>
+            <span className="kicker">Technical industrial supply</span>
+            <h1>Adsorbents, water-treatment chemicals and process media for industrial applications.</h1>
+            <p>Aarbutus Technologies helps industrial buyers source materials for water treatment, gas drying, purification, filtration and separation duties across North India and beyond.</p>
             <div className="hero-actions">
               <Link href="/quote" className="btn btn-primary">Request quotation</Link>
               <Link href="/products" className="btn btn-secondary">Explore products</Link>
@@ -31,9 +38,24 @@ export default async function HomePage() {
             <ul>
               <li>Adsorbents including molecular sieves, activated alumina and silica gel</li>
               <li>Water treatment chemicals and ion exchange media</li>
-              <li>Process support media, catalyst carriers and export packaging</li>
+              <li>Filter media and selective gas-treatment solutions</li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="section container">
+        <div className="section-title">
+          <div>
+            <span className="kicker">Get a faster quotation</span>
+            <h2>Send the technical details that matter</h2>
+          </div>
+        </div>
+        <p>Share the information below in your inquiry so we can assess suitability and prepare a more relevant quotation.</p>
+        <div className="grid-3">
+          <div className="info-card"><h3>Product and grade</h3><p>Name the required product, grade, mesh size or form. A target specification or existing TDS helps us match the right option.</p></div>
+          <div className="info-card"><h3>Application and quantity</h3><p>Share the process duty, feed-water or gas condition where relevant, and expected monthly or one-time quantity.</p></div>
+          <div className="info-card"><h3>Delivery requirement</h3><p>Include delivery location, packaging preference and required timeline so we can prepare a useful commercial response.</p></div>
         </div>
       </section>
 
@@ -89,14 +111,14 @@ export default async function HomePage() {
         </div>
         <div className="grid-3">
           {products.map((product) => (
-            <div key={product.slug} className="product-card">
+              <article key={product.slug} className="product-card">
               <Image src={product.image} alt={product.product} width={500} height={260} style={{ borderRadius: '12px', marginBottom: '0.8rem' }} />
               <h3>{product.product}</h3>
               <p>{product.overview}</p>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span className="badge">{product.family}</span>
                 <Link href={`/products/${product.slug}`} className="btn btn-outline" style={{ borderColor: 'var(--border)', color: 'var(--blue)', padding: '0.55rem 0.75rem' }}>View details</Link>
-              </div>
+              </article>
             </div>
           ))}
         </div>
@@ -106,15 +128,15 @@ export default async function HomePage() {
         <div className="container">
           <div className="section-title">
             <div>
-              <span className="kicker">Quality and delivery</span>
-              <h2>Global supply readiness, technical support and documented quality</h2>
+            <span className="kicker">Why buyers contact us</span>
+            <h2>Clear product selection, documentation support and responsive commercial coordination</h2>
             </div>
           </div>
           <div className="stat-grid">
-            <div className="stat-box"><strong>25+</strong><span>Years of export operations</span></div>
-            <div className="stat-box"><strong>40+</strong><span>Countries served</span></div>
-            <div className="stat-box"><strong>12</strong><span>Technical product families</span></div>
-            <div className="stat-box"><strong>24/7</strong><span>Commercial response</span></div>
+            <div className="stat-box"><strong>35</strong><span>Launch-range products and media</span></div>
+            <div className="stat-box"><strong>6</strong><span>Industrial product categories</span></div>
+            <div className="stat-box"><strong>CoA / TDS</strong><span>Documentation available on request</span></div>
+            <div className="stat-box"><strong>India + import</strong><span>Dual-sourcing approach for eligible products</span></div>
           </div>
         </div>
       </section>

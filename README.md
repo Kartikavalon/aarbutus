@@ -1,50 +1,91 @@
 # Aarbutus Technologies Website
 
-This project has been rebuilt as a production-grade Next.js industrial website for Aarbutus Technologies.
+This repository contains the Next.js website for Aarbutus Technologies, rebuilt to support industrial chemicals, adsorbents, water-treatment media and product catalog pages.
 
-## Project structure
-- app/ – app-router pages for the website experience
-- components/ – shared headers, footers and layout blocks
-- data/ – generated structured product data and content files
-- lib/ – data access and content helpers
-- public/ – static assets, images and downloadable files
-- scripts/ – content and product generation scripts
+## Repository overview
+- `app/` – App Router pages and SEO metadata for all visible site pages.
+- `components/` – Shared UI components: header, footer and inquiry form.
+- `lib/` – Data access, CSV parsing and content helpers.
+- `public/` – Static assets, images, downloads and the editable product CSV.
+- `scripts/` – Scripts for generating product data and supporting content workflows.
+- `products/` – Legacy static product HTML pages (can be deprecated once App Router pages are fully adopted).
 
-## Update product data from Excel
-1. Update the CSV file in public/data/products.csv.
-2. Run:
+## SEO and site metadata
+- Root metadata is defined in `app/layout.js`, including default title, description, canonical base URL and organization schema.
+- Page-specific metadata uses `export const metadata` and `generateMetadata()` for dynamic product pages.
+- Product detail pages include JSON-LD structured data for `Product` and `BreadcrumbList` schema.
+- `app/robots.js` allows all pages and points search engines to `https://aarbutus.co.in/sitemap.xml`.
+- `app/sitemap.js` generates a sitemap from product and category data at build time.
+
+## Core product workflow
+1. Maintain product data in `public/data/products.csv`.
+2. Generate the product catalog with:
    ```bash
-   node scripts/generate-products.js
+   npm run generate-products
    ```
-3. Restart the dev server to reflect the new data.
+3. The site reads from `public/data/products.csv` at build time and creates dynamic product and category pages.
 
-## Add products
-- Add a new row to public/data/products.csv using the same columns.
-- Ensure the Slug value is unique.
-- Regenerate the JSON file with the command above.
+## Editing product data
+- Add or update rows in `public/data/products.csv`.
+- Keep the `Slug` column unique and URL-friendly.
+- Include optional SEO fields:
+  - `seo_title`
+  - `meta_description`
+  - `image_alt`
+- Regenerate product data after editing.
 
-## Add categories
-- Categories are derived from the Family column in the product spreadsheet.
-- New families appear automatically in the products listing and category pages.
+## Add or update images
+- Store product and brand images under `public/assets/images/`.
+- Use descriptive filenames and alt text.
+- The home and about pages include guidance for adding image slots and gallery images.
+- Recommended image size: 1200×800 for large hero or gallery images.
 
-## Deploy to Vercel
-1. Connect the repository to Vercel.
-2. Set the framework to Next.js.
-3. Deploy from the repository root.
+## Running locally
+- Install dependencies:
+  ```bash
+  npm install
+  ```
+- Start local development:
+  ```bash
+  npm run dev
+  ```
+- Build for production:
+  ```bash
+  npm run build
+  ```
+- Serve the production build locally:
+  ```bash
+  npm run start
+  ```
 
-## Regenerate content
-- Products: node scripts/generate-products.js
+## Vercel deployment
+- Connect this repository to Vercel.
+- Use the default Next.js build settings.
+- Ensure the `public/data/products.csv` file is included in the deployment.
+- `next build` will generate the required app routes and sitemap.
 
-## Update downloadable PDFs
-- Place PDFs in public/downloads and reference them from the relevant content files.
+## Content and page maintenance
+- Update page copy directly in `app/*.js`.
+- Add new pages by creating new folders in `app/` and exporting page components.
+- Use `components/SiteHeader.js` and `components/SiteFooter.js` for shared layout updates.
+- For reusable page sections, add new components under `components/` and import them in App Router pages.
 
-## Update company information
-- Edit the content helpers in lib/content.js and the page metadata in app/.
+## Adding product categories
+- Categories are derived automatically from `Family` values in the product CSV.
+- Category slugs are normalized from the family name.
+- To add a new category, add products with a new `Family` value and regenerate the site.
 
-## Add new industries
-- Extend the industries array in lib/content.js.
+## Search Console and sitemap guidance
+- Submit `https://aarbutus.co.in/sitemap.xml` to Google Search Console.
+- Confirm the site is indexed with the canonical URL patterns shown in page metadata.
+- Ensure no-disallow directives exist in `app/robots.js`.
 
-## Maintain the website
-- Keep product data in the spreadsheet as the source of truth.
-- Regenerate data whenever product information changes.
-- Use the app router pages to add or refine new pages.
+## Troubleshooting
+- If a page fails to build, verify `public/data/products.csv` columns and row completeness.
+- If a product page returns 404, confirm the slug exists and is unique.
+- If Open Graph previews are incorrect, confirm the page metadata and image URLs are valid.
+
+## Recommended maintenance
+- Keep the product spreadsheet as the source of truth.
+- Regenerate product data after every catalog update.
+- Review `README.md` and `components-explained.md` for site structure and maintenance workflows.

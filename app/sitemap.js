@@ -1,12 +1,14 @@
-import { getProducts } from '@/lib/products';
+import { getCategories, getProducts } from '@/lib/products';
 
 export default async function sitemap() {
   const products = await getProducts();
-  const baseUrl = 'https://aarbutus.example.com';
+  const categories = await getCategories();
+  const baseUrl = 'https://aarbutus.co.in';
   const productRoutes = products.map((product) => ({
     url: `${baseUrl}/products/${product.slug}`,
     lastModified: new Date(),
   }));
+  const categoryRoutes = categories.map((category) => ({ url: `${baseUrl}/products/category/${category.slug}`, lastModified: new Date() }));
 
   return [
     { url: baseUrl, lastModified: new Date() },
@@ -18,6 +20,7 @@ export default async function sitemap() {
     { url: `${baseUrl}/downloads`, lastModified: new Date() },
     { url: `${baseUrl}/contact`, lastModified: new Date() },
     { url: `${baseUrl}/quote`, lastModified: new Date() },
+    ...categoryRoutes,
     ...productRoutes,
   ];
 }

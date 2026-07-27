@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "generate-products": "node scripts/generate-products.js",
+    "import-products": "powershell -ExecutionPolicy Bypass -File scripts/import_product_workbook.ps1"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

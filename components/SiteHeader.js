@@ -24,6 +24,7 @@ export default function SiteHeader() {
             <Link key={link.href} href={link.href}>{link.label}</Link>
           ))}
         </nav>
+        <Link href="/quote" className="header-quote">Request a quote</Link>
       </div>
     </header>
   );

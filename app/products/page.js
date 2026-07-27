@@ -4,6 +4,13 @@ import { getProducts, getCategories } from '@/lib/products';
 export const metadata = {
   title: 'Products | Aarbutus Technologies',
   description: 'Browse adsorbents, specialty chemicals and support media for industrial applications.',
+  alternates: { canonical: '/products' },
+  openGraph: {
+    type: 'website',
+    title: 'Products | Aarbutus Technologies',
+    description: 'Browse adsorbents, specialty chemicals and support media for industrial applications.',
+    url: 'https://aarbutus.co.in/products',
+  },
 };
 
 export default async function ProductsPage() {

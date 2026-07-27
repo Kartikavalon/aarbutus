@@ -4,6 +4,6 @@ export default function robots() {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://aarbutus.example.com/sitemap.xml',
+    sitemap: 'https://aarbutus.co.in/sitemap.xml',
   };
 }
