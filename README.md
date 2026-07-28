@@ -150,6 +150,39 @@ To add a new category:
 2. Regenerate the product data
 3. The category page will appear automatically
 
+## How to edit a product image
+Product images are controlled through the product data in `public/data/products.csv`.
+
+### Step-by-step
+1. Open `public/data/products.csv`.
+2. Find the product row you want to update.
+3. Look for the column named `Image File`.
+4. Enter the image path you want to use.
+   - Example: `/assets/images/activated-carbon.jpg`
+5. Save the CSV file.
+6. Run the regeneration command:
+   ```bash
+   npm run generate-products
+   ```
+7. Restart the development server if the existing page still shows the old image.
+
+### Important notes
+- The image path must start with `/assets/images/` if it is stored in the public image folder.
+- The file must actually exist in `public/assets/images/`.
+- Good file formats are `.jpg`, `.jpeg`, `.png`, `.svg`, and `.webp`.
+- Use short, descriptive names such as `activated-carbon.jpg` or `molecular-sieve-4a.png`.
+
+### Example
+If you want to change the image for a product, use a row like this:
+```csv
+Product|Slug|Family|Image File
+Activated Carbon|activated-carbon|Adsorbents|/assets/images/activated-carbon.jpg
+```
+
+### Where the image appears
+- The image will appear on the product cards and the product detail page.
+- If the product image is missing or the path is wrong, the site will fall back to the placeholder image.
+
 ## How to update SEO metadata
 SEO and metadata are controlled in:
 - `app/layout.js` for global defaults
