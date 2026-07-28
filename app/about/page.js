@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { promises as fs } from 'fs';
+import path from 'path';
 
 export const metadata = {
   title: 'About Us | Aarbutus Technologies',
@@ -12,7 +14,50 @@ export const metadata = {
   },
 };
 
-export default function AboutPage() {
+async function getGalleryImages() {
+  const imageDirectory = path.join(process.cwd(), 'public', 'assets', 'images');
+  const entries = await fs.readdir(imageDirectory, { withFileTypes: true });
+  const imageFiles = entries
+    .filter((entry) => entry.isFile())
+    .map((entry) => entry.name)
+    .filter((name) => /\.(jpg|jpeg|png|svg|webp)$/i.test(name));
+
+  const preferredNames = [
+    'factory1.jpg',
+    'factory1.jpeg',
+    'factory1.png',
+    'factory1.webp',
+    'factory.jpg',
+    'factory.jpeg',
+    'factory.png',
+    'factory.webp',
+    'team1.jpg',
+    'team1.jpeg',
+    'team1.png',
+    'team1.webp',
+    'team.jpg',
+    'team.jpeg',
+    'team.png',
+    'team.webp',
+    'plant1.jpg',
+    'plant1.jpeg',
+    'plant1.png',
+    'plant1.webp',
+  ];
+
+  const matchedImages = preferredNames.filter((name) => imageFiles.includes(name));
+  const fallbackImages = imageFiles.filter((name) => /factory|team|plant|office|lab|about/i.test(name));
+  const selectedImages = matchedImages.length > 0 ? matchedImages : fallbackImages;
+
+  return (selectedImages.length > 0 ? selectedImages : ['factory-placeholder.svg', 'team-placeholder.svg']).slice(0, 6).map((name) => ({
+    src: `/assets/images/${name}`,
+    alt: name.replace(/[-_.]/g, ' ').replace(/\.[^.]+$/, ''),
+  }));
+}
+
+export default async function AboutPage() {
+  const galleryImages = await getGalleryImages();
+
   return (
     <main>
       <section className="page-intro">
@@ -46,10 +91,11 @@ export default function AboutPage() {
             <h2>Factory and team images</h2>
           </div>
         </div>
-        <p>Place high-resolution images in <code>public/assets/images/</code> and reference them on this page. Recommended sizes: 1200×800 for landscape images. Example files: <code>factory1.jpg</code>, <code>team1.jpg</code>.</p>
+        <p>Upload image files to <code>public/assets/images/</code> and they will appear here automatically when their names match the common gallery patterns such as <code>factory1.jpg</code> or <code>team1.jpg</code>.</p>
         <div className="gallery-grid">
-          <img src="/assets/images/factory-placeholder.svg" alt="Factory placeholder" style={{ maxWidth: '100%', borderRadius: 8 }} />
-          <img src="/assets/images/team-placeholder.svg" alt="Team placeholder" style={{ maxWidth: '100%', borderRadius: 8 }} />
+          {galleryImages.map((image) => (
+            <img key={image.src} src={image.src} alt={image.alt} style={{ maxWidth: '100%', borderRadius: 8 }} loading="lazy" />
+          ))}
         </div>
       </section>
       <section className="section container">
