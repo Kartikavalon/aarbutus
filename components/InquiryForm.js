@@ -13,13 +13,26 @@ const fields = [
 
 export default function InquiryForm({ source = 'Website inquiry' }) {
   const [values, setValues] = useState({});
+  const [status, setStatus] = useState('');
 
   function submit(event) {
     event.preventDefault();
+
     const lines = fields.map(([key, label]) => `${label}: ${values[key] || 'Not provided'}`);
     lines.push(`Application / request details: ${values.details || 'Not provided'}`);
     const subject = `${source}: ${values.product || 'Product inquiry'}`;
-    window.location.href = `mailto:aarbutustechnologies@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+    const mailtoLink = `mailto:aarbutustechnologies@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+
+    try {
+      const popup = window.open(mailtoLink, '_blank', 'noopener,noreferrer');
+      if (!popup) {
+        window.location.href = mailtoLink;
+      }
+      setStatus('Opening your email app…');
+    } catch {
+      window.location.href = mailtoLink;
+      setStatus('If the email app did not open, please copy the address manually.');
+    }
   }
 
   return (
@@ -38,6 +51,7 @@ export default function InquiryForm({ source = 'Website inquiry' }) {
       </div>
       <button className="btn btn-primary" type="submit">Prepare email inquiry</button>
       <p className="form-note">This opens a pre-filled email to Aarbutus Technologies. You can review it before sending.</p>
+      {status ? <p className="form-note" style={{ color: 'var(--blue)' }}>{status}</p> : null}
     </form>
   );
 }

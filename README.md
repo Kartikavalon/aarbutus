@@ -1,91 +1,215 @@
 # Aarbutus Technologies Website
 
-This repository contains the Next.js website for Aarbutus Technologies, rebuilt to support industrial chemicals, adsorbents, water-treatment media and product catalog pages.
+This repository powers the Aarbutus Technologies website built with Next.js. It is designed for industrial chemical product marketing, product catalog browsing, quotations, and SEO-friendly buyer engagement.
 
-## Repository overview
-- `app/` – App Router pages and SEO metadata for all visible site pages.
-- `components/` – Shared UI components: header, footer and inquiry form.
-- `lib/` – Data access, CSV parsing and content helpers.
-- `public/` – Static assets, images, downloads and the editable product CSV.
-- `scripts/` – Scripts for generating product data and supporting content workflows.
-- `products/` – Legacy static product HTML pages (can be deprecated once App Router pages are fully adopted).
+## What this site includes
+- A modern homepage with product highlights and capability messaging
+- Product catalog pages generated from CSV data
+- Dynamic product detail pages with SEO metadata and structured data
+- A contact and inquiry experience that opens a pre-filled email
+- Shared header, footer, and reusable UI components
 
-## SEO and site metadata
-- Root metadata is defined in `app/layout.js`, including default title, description, canonical base URL and organization schema.
-- Page-specific metadata uses `export const metadata` and `generateMetadata()` for dynamic product pages.
-- Product detail pages include JSON-LD structured data for `Product` and `BreadcrumbList` schema.
-- `app/robots.js` allows all pages and points search engines to `https://aarbutus.co.in/sitemap.xml`.
-- `app/sitemap.js` generates a sitemap from product and category data at build time.
+## Main folders and their purpose
+- `app/` – Route pages and page metadata. This is where homepage, about, products, contact, and other pages live.
+- `components/` – Reusable sections such as the header, footer, and inquiry form.
+- `lib/` – Data helpers and content arrays used to populate pages.
+- `public/` – Static files such as images, icons, PDFs, and the main product CSV.
+- `scripts/` – Helper scripts for product generation and catalog maintenance.
+- `products/` – Legacy static product pages. The active site now primarily uses the App Router in `app/`.
 
-## Core product workflow
-1. Maintain product data in `public/data/products.csv`.
-2. Generate the product catalog with:
+## Quick start
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+3. Open the local site in your browser.
+4. Build for production when you are ready:
+   ```bash
+   npm run build
+   ```
+
+## How to edit the homepage content
+The homepage content is defined in `app/page.js`.
+
+You can change:
+- Hero heading and supporting text
+- Featured product section copy
+- Category cards and industry cards
+- CTA copy and client trust messaging
+- Statistics and recent updates section
+
+If you want to change the main message, edit the JSX inside the relevant section blocks in `app/page.js`.
+
+## How to edit the About page
+The About page is in `app/about/page.js`.
+
+You can update:
+- Company description and mission
+- Leadership text
+- Gallery section content
+- Page title and SEO description
+
+## How to add images to the About page
+This is the recommended process:
+
+1. Place the image file in `public/assets/images/`.
+   - Good examples: `factory1.jpg`, `team1.jpg`, `plant1.webp`
+   - Keep the filename short and descriptive.
+
+2. Use a supported format:
+   - `.jpg`, `.jpeg`, `.png`, `.svg`, or `.webp`
+
+3. Open `app/about/page.js`.
+
+4. Find the gallery section, which currently uses image tags like this:
+   ```jsx
+   <img src="/assets/images/factory-placeholder.svg" alt="Factory placeholder" />
+   ```
+
+5. Replace the image path with your new uploaded file.
+   Example:
+   ```jsx
+   <img src="/assets/images/factory1.jpg" alt="Factory view" />
+   ```
+
+6. If you want to add more images, add another `<img>` tag inside the gallery section.
+
+7. For best results:
+   - Use a wide landscape image for gallery cards
+   - Keep image size reasonable for web performance
+   - Use clear alt text for accessibility and SEO
+
+8. If you want to change the placeholder image used by the page, replace the `src` value in the existing `<img>` tags.
+
+## How to change the logo and favicon
+- Logo: update the file referenced in `components/SiteHeader.js`
+- Favicon: update the icon entry in `app/layout.js`
+
+Typical workflow:
+1. Place the new image in `public/assets/images/` or `public/`
+2. Update the `src` or `icon` path
+3. Restart the dev server if needed
+
+## How to edit contact details
+The main contact information lives in:
+- `components/SiteFooter.js`
+- `app/contact/page.js`
+- `app/layout.js`
+
+Update:
+- Company email
+- Phone number
+- Office address
+- Contact page copy
+
+## How to change the inquiry form behavior
+The inquiry form is in `components/InquiryForm.js`.
+
+You can change:
+- The form fields
+- The labels and placeholders
+- The email recipient
+- The pre-filled subject and body format
+
+If the mail portal does not open in a browser, the form now tries a fallback method that opens the mail client or redirects to the generated `mailto:` link.
+
+## How to edit product data
+Products are driven from `public/data/products.csv`.
+
+### Recommended workflow
+1. Open `public/data/products.csv`
+2. Update the product information you need
+3. Keep the `Slug` value unique and URL-friendly
+4. Run:
    ```bash
    npm run generate-products
    ```
-3. The site reads from `public/data/products.csv` at build time and creates dynamic product and category pages.
+5. Restart the app if necessary
 
-## Editing product data
-- Add or update rows in `public/data/products.csv`.
-- Keep the `Slug` column unique and URL-friendly.
-- Include optional SEO fields:
-  - `seo_title`
-  - `meta_description`
-  - `image_alt`
-- Regenerate product data after editing.
+### Useful product columns
+- `Product` – display name
+- `Slug` – URL slug
+- `Family` – category/family name
+- `Overview` – short summary shown on cards
+- `Applications` – use case description
+- `Typical Spec` – technical specification text
+- `Grades / Forms` – packaging or grade information
+- `seo_title` – custom SEO title
+- `meta_description` – custom SEO description
+- `image_alt` – alt text for product image
 
-## Add or update images
-- Store product and brand images under `public/assets/images/`.
-- Use descriptive filenames and alt text.
-- The home and about pages include guidance for adding image slots and gallery images.
-- Recommended image size: 1200×800 for large hero or gallery images.
+## How to add or change product categories
+Categories are derived from the `Family` column in the CSV.
 
-## Running locally
-- Install dependencies:
-  ```bash
-  npm install
-  ```
-- Start local development:
-  ```bash
-  npm run dev
-  ```
-- Build for production:
-  ```bash
-  npm run build
-  ```
-- Serve the production build locally:
-  ```bash
-  npm run start
-  ```
+To add a new category:
+1. Add a new product with a new `Family` value
+2. Regenerate the product data
+3. The category page will appear automatically
 
-## Vercel deployment
-- Connect this repository to Vercel.
-- Use the default Next.js build settings.
-- Ensure the `public/data/products.csv` file is included in the deployment.
-- `next build` will generate the required app routes and sitemap.
+## How to update SEO metadata
+SEO and metadata are controlled in:
+- `app/layout.js` for global defaults
+- `app/page.js` for homepage metadata
+- `app/about/page.js` for about page metadata
+- `app/contact/page.js` for contact page metadata
+- `app/products/[slug]/page.js` for product-specific metadata
 
-## Content and page maintenance
-- Update page copy directly in `app/*.js`.
-- Add new pages by creating new folders in `app/` and exporting page components.
-- Use `components/SiteHeader.js` and `components/SiteFooter.js` for shared layout updates.
-- For reusable page sections, add new components under `components/` and import them in App Router pages.
+You can update:
+- Page titles
+- Descriptions
+- Canonical URLs
+- Open Graph preview images and text
 
-## Adding product categories
-- Categories are derived automatically from `Family` values in the product CSV.
-- Category slugs are normalized from the family name.
-- To add a new category, add products with a new `Family` value and regenerate the site.
+## How to add a new page
+To create a new page:
+1. Create a folder inside `app/` with the page name
+2. Add a `page.js` file inside it
+3. Export a component from that file
+4. Add metadata if you want SEO support
 
-## Search Console and sitemap guidance
-- Submit `https://aarbutus.co.in/sitemap.xml` to Google Search Console.
-- Confirm the site is indexed with the canonical URL patterns shown in page metadata.
-- Ensure no-disallow directives exist in `app/robots.js`.
+Example:
+```bash
+app/pricing/page.js
+```
 
-## Troubleshooting
-- If a page fails to build, verify `public/data/products.csv` columns and row completeness.
-- If a product page returns 404, confirm the slug exists and is unique.
-- If Open Graph previews are incorrect, confirm the page metadata and image URLs are valid.
+## How to add a new section to an existing page
+You can insert a new section by adding JSX inside the page component.
 
-## Recommended maintenance
-- Keep the product spreadsheet as the source of truth.
-- Regenerate product data after every catalog update.
-- Review `README.md` and `components-explained.md` for site structure and maintenance workflows.
+Example pattern:
+```jsx
+<section className="section container">
+  <h2>New section</h2>
+  <p>Write your content here.</p>
+</section>
+```
+
+## How to style sections
+The website uses global CSS from `styles.css`.
+
+You can add new styles there for:
+- layout spacing
+- section backgrounds
+- cards and buttons
+- typography and headings
+
+## Deployment on Vercel
+1. Connect the repository to Vercel
+2. Choose the Next.js framework
+3. Deploy from the repository root
+4. Make sure the environment and build settings remain standard
+
+## Common troubleshooting
+- If the build fails, check the JSX carefully for missing tags
+- If a product page returns 404, verify the slug is unique and valid
+- If an image does not show, confirm the file path is correct and exists in `public/assets/images/`
+- If the inquiry form does not open email correctly, try your browser’s mail app permissions and confirm the generated `mailto:` link is valid
+
+## Recommended maintenance habits
+- Keep product CSV data as the main source of truth
+- Update the README whenever you add major features or page sections
+- Review page metadata after changing company messaging or service descriptions
+- Keep images compressed and descriptive for better performance and SEO
