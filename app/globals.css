@@ -124,3 +124,23 @@ button, input, select, textarea { font: inherit; }
   .hero-grid, .grid-3, .grid-2, .grid-4, .form-grid, .footer-grid, .stat-grid { grid-template-columns: 1fr; }
   .nav-links { display: none; }
 }
+
+/* Gallery styling for About page */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
+  background: #fff;
+  display: block;
+  min-height: 160px;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

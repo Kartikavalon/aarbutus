@@ -275,6 +275,38 @@ curl -I https://aarbutus.co.in
 curl -I https://aarbutus.co.in/sitemap.xml
 ```
 
+## Lighthouse remediation checklist (priority actions)
+Use this checklist to improve the Lighthouse scores reported for `https://aarbutus.co.in`.
+
+1. Identify and preload the LCP resource
+   - Find the Largest Contentful Paint (usually the main hero image or prominent product image).
+   - Use Next.js `Image` with `priority` or add a `<link rel="preload" as="image" href="/path/to/lcp.jpg">` in `app/layout.js` for that resource.
+
+2. Optimize images
+   - Convert large JPEG/PNG to `webp` where supported and keep appropriate dimensions.
+   - Use Next.js `<Image />` (automatic resizing and modern formats).
+
+3. Reduce main-thread blocking JavaScript
+   - Audit large bundles via `next build` output and source-map-explorer or webpack-bundle-analyzer.
+   - Use dynamic imports (`next/dynamic`) for non-critical components and defer analytics or heavy widgets.
+
+4. Avoid long main-thread tasks
+   - Move heavy computation off the main thread or into server-side code when possible.
+   - Replace synchronous loops and large JS libraries with lighter alternatives.
+
+5. Accessibility fixes (quick wins)
+   - Fix contrast issues (adjust colors in `styles.css` and ensure text meets WCAG ratios).
+   - Ensure heading order is semantically correct (H1 → H2 → H3) across pages.
+   - Add or correct `alt` attributes on image tags (avoid redundant text).
+
+6. Re-run Lighthouse
+   - Use Chrome DevTools Lighthouse or Lighthouse CI to re-evaluate after each change.
+
+Quick Lighthouse command (requires Node & npm package):
+```bash
+npx lhci autorun --collect.url=https://aarbutus.co.in --upload.target=temporary-public-storage
+```
+
 ## Recommended maintenance habits
 - Keep product CSV data as the main source of truth
 - Update the README whenever you add major features or page sections

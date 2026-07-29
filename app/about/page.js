@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { promises as fs } from 'fs';
 import path from 'path';
 
@@ -94,7 +95,9 @@ export default async function AboutPage() {
         <p>Upload image files to <code>public/assets/images/</code> and they will appear here automatically when their names match the common gallery patterns such as <code>factory1.jpg</code> or <code>team1.jpg</code>.</p>
         <div className="gallery-grid">
           {galleryImages.map((image) => (
-            <img key={image.src} src={image.src} alt={image.alt} style={{ maxWidth: '100%', borderRadius: 8 }} loading="lazy" />
+            <div key={image.src} className="gallery-item">
+              <Image src={image.src} alt={image.alt} width={1200} height={800} style={{ width: '100%', height: 'auto', borderRadius: 8, objectFit: 'cover' }} loading="lazy" />
+            </div>
           ))}
         </div>
       </section>
