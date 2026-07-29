@@ -29,7 +29,7 @@ function normalizeRow(row) {
 }
 
 const csvText = fs.readFileSync(inputPath, 'utf8');
-const products = parse(csvText, { delimiter: '|', columns: true, skip_empty_lines: true, relax_column_count: true }).map(normalizeRow);
+const products = parse(csvText, { columns: true, skip_empty_lines: true, relax_column_count: true, bom: true }).map(normalizeRow);
 
 fs.mkdirSync(path.dirname(outputPath), { recursive: true });
 fs.writeFileSync(outputPath, JSON.stringify(products, null, 2));

@@ -54,36 +54,43 @@ You can update:
 - Page title and SEO description
 
 ## How to add images to the About page
-This is the recommended process:
+The About page now auto-discovers gallery images from the `public/assets/images/` folder and uses Next.js `Image` components for optimized delivery. You usually do not need to edit code — simply add images to the public folder and the gallery will pick them up.
 
-1. Place the image file in `public/assets/images/`.
-   - Good examples: `factory1.jpg`, `team1.jpg`, `plant1.webp`
-   - Keep the filename short and descriptive.
+Recommended process:
 
-2. Use a supported format:
-   - `.jpg`, `.jpeg`, `.png`, `.svg`, or `.webp`
+1. Place the image file in [public/assets/images/](public/assets/images/).
+   - Good examples: `factory1.jpg`, `team1.jpg`, `plant1.webp`.
+   - Keep filenames short and descriptive; avoid spaces.
 
-3. Open `app/about/page.js`.
+2. Supported formats:
+   - `.jpg`, `.jpeg`, `.png`, `.svg`, `.webp`.
 
-4. Find the gallery section, which currently uses image tags like this:
-   ```jsx
-   <img src="/assets/images/factory-placeholder.svg" alt="Factory placeholder" />
-   ```
+3. No code change required for most uploads.
+   - The gallery uses `app/about/page.js`'s `getGalleryImages()` which automatically selects preferred filenames (e.g. `factory1.jpg`, `team1.jpg`) or any files that match `/factory|team|plant|office|lab|about/i`.
+   - It will pick up up to 6 images and fall back to placeholders if none are found.
 
-5. Replace the image path with your new uploaded file.
-   Example:
-   ```jsx
-   <img src="/assets/images/factory1.jpg" alt="Factory view" />
-   ```
+4. If you prefer to control images manually, open [app/about/page.js](app/about/page.js#L1-L120) and either:
+   - Edit the `preferredNames` array inside `getGalleryImages()` to match your filenames, or
+   - Replace the gallery rendering with static `Image` entries, for example:
+     ```jsx
+     <div className="gallery-grid">
+       <div className="gallery-item">
+         <Image src="/assets/images/factory1.jpg" alt="Factory view" width={1200} height={800} priority />
+       </div>
+     </div>
+     ```
 
-6. If you want to add more images, add another `<img>` tag inside the gallery section.
+5. Best practices:
+   - Use landscape images for gallery cards; aim for an export width around 1200px and keep file sizes reasonable (prefer < 200–300 KB).
+   - Convert to `webp` when possible for better compression.
+   - Provide meaningful `alt` text; this helps accessibility and SEO.
+   - If you want the image to load earlier for LCP, add `priority` to a specific `Image` or add a preload in `app/layout.js`.
 
-7. For best results:
-   - Use a wide landscape image for gallery cards
-   - Keep image size reasonable for web performance
-   - Use clear alt text for accessibility and SEO
+6. Troubleshooting
+   - If an image does not appear, confirm the file exists in [public/assets/images/](public/assets/images/) and matches the supported extensions.
+   - To force-refresh images during development, restart the dev server or clear the browser cache.
 
-8. If you want to change the placeholder image used by the page, replace the `src` value in the existing `<img>` tags.
+This README previously showed manual `<img>` tags; the code now uses Next.js `Image` for better performance and automatic selection logic.
 
 ## How to change the logo and favicon
 - Logo: update the file referenced in `components/SiteHeader.js`

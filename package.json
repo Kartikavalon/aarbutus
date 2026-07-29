@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "generate-products": "node scripts/generate-products.js",
-    "import-products": "powershell -ExecutionPolicy Bypass -File scripts/import_product_workbook.ps1"
+    "import-products": "powershell -ExecutionPolicy Bypass -File scripts/import_product_workbook.ps1",
+    "export-products-xlsx": "powershell -ExecutionPolicy Bypass -File scripts/export_product_master_xlsx.ps1",
+    "generate-favicon": "powershell -ExecutionPolicy Bypass -File scripts/generate_favicon.ps1"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

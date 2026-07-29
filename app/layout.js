@@ -23,15 +23,16 @@ export const metadata = {
     description: 'Technical trading partner for adsorbents, water-treatment chemicals, ion-exchange resins and process media in India.',
   },
   icons: {
-    // primary vector icon (keeps sharp on modern browsers)
-    icon: '/favicon.svg',
-    // legacy shortcut/ico fallback (browsers will pick the best available)
-    shortcut: '/favicon.svg',
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
+      { url: '/favicon.svg', sizes: 'any', type: 'image/svg+xml' },
+    ],
+    shortcut: '/favicon.ico',
     // apple touch icon entry (used when users add to home screen on iOS)
     apple: '/assets/logo-icon.svg',
     // extra hint for other consumers; Next will serialize these into link tags
     other: [
-      { rel: 'icon', url: '/favicon.svg' },
+      { rel: 'icon', url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
       { rel: 'apple-touch-icon', url: '/assets/logo-icon.svg' },
     ],
   },

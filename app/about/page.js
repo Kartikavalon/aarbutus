@@ -92,7 +92,6 @@ export default async function AboutPage() {
             <h2>Factory and team images</h2>
           </div>
         </div>
-        <p>Upload image files to <code>public/assets/images/</code> and they will appear here automatically when their names match the common gallery patterns such as <code>factory1.jpg</code> or <code>team1.jpg</code>.</p>
         <div className="gallery-grid">
           {galleryImages.map((image) => (
             <div key={image.src} className="gallery-item">

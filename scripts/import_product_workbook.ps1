@@ -98,8 +98,9 @@ foreach ($row in $sheet.SelectNodes('//x:sheetData/x:row', $namespace)) {
 if ($rows.Count -eq 0) { throw 'No eligible product rows were found in the workbook.' }
 if (($rows.Slug | Sort-Object -Unique).Count -ne $rows.Count) { throw 'The workbook produces duplicate product slugs. Rename the affected product families before importing.' }
 
-$csv = $rows | ConvertTo-Csv -NoTypeInformation -Delimiter '|'
-$encoding = [System.Text.UTF8Encoding]::new($false)
+$csv = $rows | ConvertTo-Csv -NoTypeInformation
+# UTF-8 with BOM ensures Excel on Windows detects special characters correctly.
+$encoding = [System.Text.UTF8Encoding]::new($true)
 foreach ($outputPath in $outputPaths) {
   [System.IO.File]::WriteAllLines($outputPath, $csv, $encoding)
 }

@@ -18,7 +18,7 @@ for row in rows[1:]:
     final_rows.append(entry)
 
 with CSV_PATH.open('w', encoding='utf-8', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=headers, delimiter='|')
+    writer = csv.DictWriter(f, fieldnames=headers)
     writer.writeheader()
     writer.writerows(final_rows)
 

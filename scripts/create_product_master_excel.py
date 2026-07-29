@@ -8,7 +8,7 @@ CSV_PATH = BASE / 'data' / 'products.csv'
 XLSX_PATH = BASE / 'data' / 'products_master.xlsx'
 
 with CSV_PATH.open('r', encoding='utf-8', newline='') as f:
-    rows = list(csv.DictReader(f, delimiter='|'))
+    rows = list(csv.DictReader(f))
 
 wb = Workbook()
 ws = wb.active
