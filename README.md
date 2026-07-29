@@ -216,6 +216,63 @@ Example:
 app/pricing/page.js
 ```
 
+## Brochures & technical datasheets
+You can upload product brochures, datasheets and other documentation to the site and link them from product pages or the Download center.
+
+Placement and formats
+
+1. Place files under `public/assets/docs/` (create the folder if it doesn't exist). Recommended formats: PDF (preferred), ZIP, DOCX, PPTX. Keep filenames short, lowercase, and use hyphens (example: `activated-carbon-datasheet.pdf`).
+2. Limit file size when possible — prefer compressed PDFs under 1–2 MB for fast downloads.
+
+Reference them from product CSV
+
+1. Open `public/data/products.csv`.
+2. Add or update a column named `Datasheet` (or `datasheet`) and put the public path to the file, for example:
+
+```csv
+Product,Slug,Family,Image File,Datasheet
+Activated Carbon,activated-carbon,Adsorbents,/assets/images/activated-carbon.jpg,/assets/docs/activated-carbon-datasheet.pdf
+```
+
+3. Run the product generation script if you use it:
+
+```bash
+npm run generate-products
+```
+
+How the site uses these values
+
+- The product loader (`lib/products.js`) reads `Datasheet` and `Documentation` columns and exposes them on each product object as `product.datasheet` and `product.documentation`.
+- The product detail page can link directly to `product.datasheet`. To show a direct download button, edit [app/products/[slug]/page.js](app/products/[slug]/page.js#L1-L200) and replace or augment the existing Download link with something like:
+
+```jsx
+{product.datasheet ? (
+   <a href={product.datasheet} className="btn btn-outline" target="_blank" rel="noopener noreferrer" download>
+      Download datasheet
+   </a>
+) : (
+   <Link href="/downloads" className="btn btn-outline">Download datasheet</Link>
+)}
+```
+
+Add files to the Download center
+
+If you want the `Downloads` page to list uploaded files automatically, update `app/downloads/page.js` to read `public/assets/docs/` and render links. A simple server-side example (Node/FS) can read the directory and emit an array of file objects which the page maps into download cards.
+
+Security and serving notes
+
+- Files placed in `public/` are served directly by Next.js and are accessible at `https://your-domain/<path>` (for example `https://aarbutus.co.in/assets/docs/activated-carbon-datasheet.pdf`).
+- Avoid uploading sensitive internal documents to `public/` — only publish files intended for public distribution.
+
+Troubleshooting
+
+- If a download link returns 404, check that the file exists in `public/assets/docs/` and that the CSV path starts with `/assets/docs/`.
+- If files do not appear immediately in production, ensure your deployment process includes the new files (push them to the repo) and redeploy.
+
+If you want, I can also:
+- Modify the product detail page to show the datasheet button automatically (I can prepare a patch), or
+- Enhance the Downloads page to auto-list all `public/assets/docs/` files and show file sizes and last-modified dates.
+
 ## How to add a new section to an existing page
 You can insert a new section by adding JSX inside the page component.
 
