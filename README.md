@@ -241,6 +241,40 @@ You can add new styles there for:
 - If an image does not show, confirm the file path is correct and exists in `public/assets/images/`
 - If the inquiry form does not open email correctly, try your browser’s mail app permissions and confirm the generated `mailto:` link is valid
 
+## Favicon, HTTPS and Search Console checklist
+Follow these steps to ensure HTTPS, favicon visibility and Search Console coverage.
+
+1. Verify HTTPS on your deployment
+   - Visit `https://aarbutus.co.in` and confirm the browser shows a secure lock without warnings.
+   - In Vercel, ensure the custom domain is added and the SSL certificate status is `Enabled`.
+
+2. Add canonical and HTTPS to Search Console
+   - In Google Search Console add the property `https://aarbutus.co.in` (use the exact protocol + host).
+   - Submit `https://aarbutus.co.in/sitemap.xml` from the Sitemaps section.
+
+3. Improve favicon/favicon.ico support
+   - The site includes `public/favicon.svg` and a logo in `public/assets/`.
+   - For best compatibility, generate a `favicon.ico` and `favicon-192.png` (favicon generators online can create these from your SVG).
+   - Place them in `public/` and verify the files exist.
+   - If you need a quick conversion, use an online favicon generator and upload the `favicon.svg` or `logo-icon.svg` to produce `favicon.ico` and `apple-touch-icon.png`.
+
+4. Claim your Google Business Profile
+   - Go to Google Business Profile and claim the listing for `Aarbutus Technologies Pvt Ltd`.
+   - Use the exact address, phone, and `https://aarbutus.co.in` as the website.
+
+5. Re-crawl and monitor
+   - In Search Console use the URL inspection tool for your homepage and request indexing.
+   - Monitor coverage and Core Web Vitals reports; address any HTTPS or mixed-content warnings.
+
+### Commands and quick checks (run locally)
+```powershell
+# Check that the site is reachable over HTTPS
+curl -I https://aarbutus.co.in
+
+# Ensure sitemap is reachable
+curl -I https://aarbutus.co.in/sitemap.xml
+```
+
 ## Recommended maintenance habits
 - Keep product CSV data as the main source of truth
 - Update the README whenever you add major features or page sections
